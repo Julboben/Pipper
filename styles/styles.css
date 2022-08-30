@@ -1,0 +1,91 @@
+body {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    color: black;
+}
+h1 {
+
+}
+
+input [id="userpip"] {
+    width: 100%;
+}
+
+textarea {
+    min-width: 100%;
+    height: auto;
+    border: none;
+}
+
+#counter {
+    color: lightgrey;
+}
+
+#sidebar {
+    background-color: white;
+    border-right: solid 1px lightgrey;
+}
+
+#feed {
+    background-color: white;
+}
+
+#pipbox {
+    border-bottom: solid 1px lightgrey;
+}
+
+
+
+#mybutton {
+    color: #f55600;
+}
+
+.btn-pip {
+    color: white;
+    background-color: #f55600;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 40px;
+}
+
+.btn-pip:hover {
+    color: white;
+    background-color: #b43f00;
+}
+
+ul li {
+    list-style-type: none;
+    padding: 10px 0px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.profileImg {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.postedPipName {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.postedPipDate {
+    font-size: 12px;
+}
+
+.postedPips {
+    padding: 10px;
+    transition: background-color 0.3s;
+    border-bottom: solid 1px lightgrey;
+}
+
+.postedPips:hover {
+    background-color: WhiteSmoke;
+}
