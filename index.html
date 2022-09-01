@@ -15,73 +15,64 @@
 <body>
     <main>
         <div class="container">
+            <div id="pipModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span id="pipCloseModal">&times;</span>
+                  <p>Find a way to copy Pip inputs</p>
+                </div>
+              
+              </div>
             <div class="row">
-                <section id="sidebar" class="col-4">
+                <section id="sidebar" class="col-3">
 
                     <h1><i class="bi bi-person-fill"></i>Sidebar</h1>
                     <ul>
                         <li>
-                            <a href="http://"><i class="bi bi-house-fill"></i>Home</a>
+                            <a class="sidebar-link" href="#"><i class="bi bi-house-fill"></i>Home</a>
                         </li>
                         <li>
-                            <a href="http://"><i class="bi bi-person-fill"></i>Profil</a>
+                            <a class="sidebar-link" href="#"><i class="bi bi-person-fill"></i>Profil</a>
 
                         </li>
                         <li>
-                            <a href="http://"><i class="bi bi-globe2"></i>Explore</a>
+                            <a class="sidebar-link" href="#"><i class="bi bi-globe2"></i>Explore</a>
 
                         </li>
                         <li>
-                            <a href="http://"><i class="bi bi-globe2"></i>Explore</a>
-
-                        </li>
-                        <li>
-                            <button type="button" class="btn btn-pip">Pip modal</button>
+                            <!-- Modal Pip -->
+                            <button id="pipOpenModal" type="button" class="btn btn-pip">Pip modal</button>
                         </li>
                     </ul>
-                    
-                    
+
+
                 </section>
-                <section id="feed" class="col-8">
+                <section id="feed" class="col-9">
                     <div id="pipbox" class="container">
-                    <h1></h1>
-                    <form name="frmContact" method="post" action="contact.php">
-                        <p>
+                        <h1>Forside</h1>
+                        <form name="frmContact" method="post" action="database.php">
+                            <p>
                             <div class="d-flex">
-                                <img class="profileImg" src="/img/profilepic.jpg" alt="">
+                                <img class="userImg" src="/img/profilepic.jpg" alt="">
                                 <label for="userpip"></label>
-                                <input type="text" name="userpip" id="userpip" placeholder="User">
+                                <!-- <input type="text" name="userpip" id="userpip" placeholder="User"> -->
                             </div>
-                        </p>
-                        <p>
-                        <label for="textpip"></label>
-                        <textarea name="textpip" id="textpip" maxlength="255" placeholder="Hvad tænker du?"></textarea>
-                        </p>
-                        <p id="counter"><span id="count"></span>/255</p>
-                        <p>
-                        <input type="submit" name="Submit" id="Submit" value="Pip" class="btn btn-pip">
-                        </p>
+                            </p>
+                            <p>
+                                <label for="textpip"></label>
+                                <textarea name="textpip" id="textpip" maxlength="255"
+                                    placeholder="Hvad tænker du?"></textarea>
+                            </p>
+                            <p id="counter"><span id="count"></span>/255</p>
+                            <p>
+                                <input onclick="" type="submit" name="submit" id="submit" value="Pip"
+                                    class="btn btn-pip">
+                            </p>
                         </form>
                     </div>
                     <div class="container">
-                        <h1>All of the Pips</h1>
-                        <div class="postedPips">
-                            <div class="d-flex">
-                                <img class="profileImg" src="/img/profilepic.jpg" alt="">
-                                <div>
-                                    <p class="postedPipName">Brian Mikkelsen</p> <span class="postedPipDate">2022-09-28 14:20:12</span>
-                                    <p>Dette er en tekst besked som skal erstattes med tekst fra databasen. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, dolorem exercitationem? Nemo quo deleniti facilis architecto odit ipsum cupiditate magnam nisi distinctio quia tenetur assumenda quam, labore, delectus voluptatum sit.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="postedPips">
-                            <div class="d-flex">
-                                <img class="profileImg" src="/img/profilepic.jpg" alt="">
-                                <div>
-                                    <p class="postedPipName">Brian Mikkelsen</p> <span class="postedPipDate">2022-09-28 14:20:12</span>
-                                    <p>Dette er en tekst besked som skal erstattes med tekst fra databasen. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, dolorem exercitationem? Nemo quo deleniti facilis architecto odit ipsum cupiditate magnam nisi distinctio quia tenetur assumenda quam, labore, delectus voluptatum sit.</p>
-                                </div>
-                            </div>
+                        <!--- <h2>All Pips</h2> --->
+                        <div class="pipFeed">
                         </div>
                     </div>
                 </section>

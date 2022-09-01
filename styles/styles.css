@@ -5,7 +5,11 @@ body {
     color: black;
 }
 h1 {
+    font-size: 1rem;
+}
 
+h2 {
+    font-size: 1rem;
 }
 
 input [id="userpip"] {
@@ -24,18 +28,27 @@ textarea {
 
 #sidebar {
     background-color: white;
-    border-right: solid 1px lightgrey;
+    
 }
 
 #feed {
     background-color: white;
+    border-left: solid 1px lightgrey;
 }
 
 #pipbox {
     border-bottom: solid 1px lightgrey;
 }
 
+.sidebar-link {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
 
+.sidebar-link i::after {
+    content: "\00a0\00a0";
+}
 
 #mybutton {
     color: #f55600;
@@ -64,14 +77,14 @@ ul {
     margin: 0;
 }
 
-.profileImg {
+.userImg {
     border-radius: 50%;
     width: 50px;
     height: 50px;
     margin-right: 10px;
 }
 
-.postedPipName {
+.username {
     font-weight: bold;
     margin-bottom: 0;
 }
@@ -80,12 +93,50 @@ ul {
     font-size: 12px;
 }
 
-.postedPips {
+.postedPipBox {
     padding: 10px;
     transition: background-color 0.3s;
     border-bottom: solid 1px lightgrey;
 }
 
-.postedPips:hover {
+.postedPipBox:hover {
     background-color: WhiteSmoke;
 }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  #pipCloseModal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
