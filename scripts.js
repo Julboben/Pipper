@@ -6,6 +6,7 @@ c.innerHTML = 0;
 
 i.addEventListener("keydown", count);
 
+// Form
 function count(e) {
    var len = i.value.length;
    if (len >= maxchar) {
@@ -18,11 +19,12 @@ function count(e) {
 // Fetches database on LOAD
 window.addEventListener("load", async () => {
    const response = await fetch(
-      "https://mul3sem-default-rtdb.europe-west1.firebasedatabase.app/transactions.json"
-   ) // Add .json
+      "http://localhost:8000"
+   );
+   console.log(response)
 
    // Converts the response to JSON
-   const data = await response.json()
+   const data = await response.json();
    console.log(data)
 
    // Creates an empty Array
@@ -41,10 +43,10 @@ window.addEventListener("load", async () => {
        <div class="postedPipBoxContent d-flex">
         <img class="userImg" src="/img/profilepic.jpg" alt="">
         <div>
-            <div class="username"><span>${item.category}</span></div>
-            <div class="postedPipDate"><span>${item.transaction_date}</span></div>
+            <div class="username"><span>${item.userpip}</span></div>
+            <div class="postedPipDate"><span>${item.timepip}</span></div>
             <div class="postedPipText">
-                <p>${item.credit_card_company}</p>
+                <p>${item.textpip}</p>
                  </div>
                </div>
            </div>

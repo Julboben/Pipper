@@ -28,12 +28,13 @@ textarea {
 
 #sidebar {
     background-color: white;
-    
+    padding-top: 10px;
 }
 
 #feed {
     background-color: white;
     border-left: solid 1px lightgrey;
+    padding: 10px 0px 0px 0px;
 }
 
 #pipbox {
