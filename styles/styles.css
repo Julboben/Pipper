@@ -16,10 +16,20 @@ input [id="userpip"] {
     width: 100%;
 }
 
-textarea {
+#userPip {
+    font-weight: bold;
+}
+
+textarea[name="textpip"] {
     min-width: 100%;
     height: auto;
     border: none;
+    resize: none;
+}
+
+
+#postPipForm {
+    padding-top: 10px
 }
 
 #counter {
@@ -29,8 +39,12 @@ textarea {
 #sidebar {
     background-color: white;
     padding-top: 10px;
+    min-height: 100vh;
 }
 
+#login-btn {
+
+}
 #feed {
     background-color: white;
     border-left: solid 1px lightgrey;
@@ -61,6 +75,7 @@ textarea {
     border: none;
     border-radius: 25px;
     padding: 8px 40px;
+
 }
 
 .btn-pip:hover {
@@ -78,6 +93,19 @@ ul {
     margin: 0;
 }
 
+.postedPipBoxContent {
+    display: flex;
+}
+
+.postedPipTextContent {
+    width: 100%;
+}
+
+.authenticate-icon {
+    margin-bottom: 3px;
+    margin-right: 5px;
+}
+
 .userImg {
     border-radius: 50%;
     width: 50px;
@@ -85,9 +113,26 @@ ul {
     margin-right: 10px;
 }
 
-.username {
+.userfirstname {
     font-weight: bold;
     margin-bottom: 0;
+    padding-right: 5px;
+}
+
+/* .userfirstname:after {
+    content: url("data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+  </svg>");
+} */
+
+.username {
+    font-weight: normal;
+    color: #888;
+    margin-bottom: 0;
+}
+
+.username:before {
+    content: "@";
 }
 
 .postedPipDate {

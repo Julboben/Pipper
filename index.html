@@ -32,7 +32,7 @@
                             <a class="sidebar-link" href="#"><i class="bi bi-house-fill"></i>Home</a>
                         </li>
                         <li>
-                            <a class="sidebar-link" href="#"><i class="bi bi-person-fill"></i>Profil</a>
+                            <a class="sidebar-link" href="#"><i class="bi bi-person-fill"></i>Profile</a>
 
                         </li>
                         <li>
@@ -44,35 +44,31 @@
                             <button id="pipOpenModal" type="button" class="btn btn-pip">Pip modal</button>
                         </li>
                     </ul>
-                    <button id="login" type="button" class="btn btn-pip">Login</button>
+                    <button id="login-btn" type="button" class="btn btn-pip">Log in</button>
 
 
                 </section>
                 <section id="feed" class="col-9">
                     <div id="pipbox" class="container">
                         <h1>Feed</h1>
-                        <form name="frmContact" method="post" action="database.php">
-                            <p>
+                        <form id="postPipForm" name="postPipForm" method="post">
                             <div class="d-flex">
                                 <img class="userImg" src="/img/profilepic.jpg" alt="">
-                                <label for="userpip"></label>
-                                <!-- <input type="text" name="userpip" id="userpip" placeholder="User"> -->
+                                <span id="userPip"></span>
                             </div>
-                            </p>
-                            <p>
                                 <label for="textpip"></label>
-                                <textarea name="textpip" id="textpip" maxlength="255"
+                                <textarea name="textpip" id="textPip" maxlength="255"
                                     placeholder="Hvad tænker du?"></textarea>
-                            </p>
-                            <p id="counter"><span id="count"></span>/255</p>
+                            <p id="counter"><span id="count">0</span>/255</p>
                             <p>
-                                <input onclick="" type="submit" name="submit" id="submit" value="Pip"
+                                <input id="submit" type="submit" name="submit" value="Pip"
                                     class="btn btn-pip">
                             </p>
                         </form>
                     </div>
                     <div class="container p-0">
                         <div class="pipFeed">
+                            
                         </div>
                     </div>
                 </section>
