@@ -57,7 +57,19 @@ if ($requestType == "GET") {
     }
 
 } elseif($requestType == "PUT") {
+  // Used for Like PIP
   $input = (array) json_decode(file_get_contents("php://input"), TRUE);
+  $statement = "UPDATE pipper.pip SET likespip =:likespip WHERE idpip =:idpip";
+
+  try {
+    $statement = $conn->prepare($statement);
+    $statement->execute(array("likespip" => $input['likespip'], "idpip" => $input['idpip']));
+
+    echo json_encode("Your like as been received!");
+
+  } catch(PDOException $e) {
+    echo json_encode("Something went wrong!") . $e->getMessage();
+  }
 }
 
 ?>

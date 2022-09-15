@@ -18,34 +18,44 @@
             <div id="pipModal" class="modal">
                 <!-- Modal content -->
                 <div class="modal-content">
-                  <span id="pipCloseModal">&times;</span>
-                  <p>Find a way to copy Pip inputs</p>
+                    <span id="pipCloseModal">&times;</span>
+                    <p>Find a way to copy Pip inputs</p>
                 </div>
-              
-              </div>
+
+            </div>
             <div class="row">
                 <section id="sidebar" class="col-3">
+                    <div class="sidebarNav">
+                        <ul>
+                            <li>
+                                <a class="sidebar-link" href="/"><img id="pipLogo"
+                                        src="/img/logo-julben-positive_blue.svg" alt="logo"></a>
+                            </li>
+                            <li>
+                                <a class="sidebar-link" href="/"><i class="bi bi-house-fill"></i><span
+                                        class="sidebar-linktext">Home</span></a>
+                            </li>
+                            <li>
+                                <a class="sidebar-link" href="#"><i class="bi bi-person-fill"></i><span
+                                        class="sidebar-linktext">Profile</span></a>
 
-                    <h1><i class="bi bi-person-fill"></i>Sidebar</h1>
-                    <ul>
-                        <li>
-                            <a class="sidebar-link" href="#"><i class="bi bi-house-fill"></i>Home</a>
-                        </li>
-                        <li>
-                            <a class="sidebar-link" href="#"><i class="bi bi-person-fill"></i>Profile</a>
+                            </li>
+                            <li>
+                                <a class="sidebar-link" href="#"><i class="bi bi-globe2"></i><span
+                                        class="sidebar-linktext">Explore</span></a>
 
-                        </li>
-                        <li>
-                            <a class="sidebar-link" href="#"><i class="bi bi-globe2"></i>Explore</a>
-
-                        </li>
-                        <li>
-                            <!-- Modal Pip -->
-                            <button id="pipOpenModal" type="button" class="btn btn-pip">Pip modal</button>
-                        </li>
-                    </ul>
-                    <button id="login-btn" type="button" class="btn btn-pip">Log in</button>
-
+                            </li>
+                            <li>
+                                <!-- Modal Pip -->
+                                <button id="pipOpenModal" type="button" class="btn btn-pip">Pip modal</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="loginDiv">
+                        <img class="userImg" src="/img/profilepic.png" alt="">
+                        <div class="loginInfo"><p class="userfirstname">Julian</p><p class="username">username</p></div>
+                        
+                    </div>
 
                 </section>
                 <section id="feed" class="col-9">
@@ -53,22 +63,26 @@
                         <h1>Feed</h1>
                         <form id="postPipForm" name="postPipForm" method="post">
                             <div class="d-flex">
-                                <img class="userImg" src="/img/profilepic.jpg" alt="">
-                                <span id="userPip"></span>
+                                <img class="userImg" src="/img/profilepic.png" alt="">
+                                <span class="userfirstname"></span>
                             </div>
-                                <label for="textpip"></label>
-                                <textarea name="textpip" id="textPip" maxlength="255"
-                                    placeholder="Hvad tænker du?"></textarea>
+                            <label for="textpip"></label>
+                            <textarea name="textpip" id="textPip" maxlength="255"
+                                placeholder="What are you thinking about?"></textarea>
                             <p id="counter"><span id="count">0</span>/255</p>
-                            <p>
-                                <input id="submit" type="submit" name="submit" value="Pip"
-                                    class="btn btn-pip">
+                            <p class="text-end">
+                                <input id="submit" type="submit" name="submit" value="Pip" class="btn btn-pip">
                             </p>
                         </form>
                     </div>
                     <div class="container p-0">
                         <div class="pipFeed">
-                            
+
+                        </div>
+                        <div class="pipFeedBottom">
+                            <h5>Congratulations!</h5>
+                            <p>You've reached the bottom of your feed.</p><button onclick="window.location.reload();"
+                                id="refresh" type="button" class="btn btn-pip">Refresh the page</button>
                         </div>
                     </div>
                 </section>

@@ -4,6 +4,22 @@ body {
     margin-left: auto;
     color: black;
 }
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+p {
+    word-break: break-word;
+    white-space: normal;
+}
+
 h1 {
     font-size: 1rem;
 }
@@ -12,16 +28,12 @@ h2 {
     font-size: 1rem;
 }
 
-input [id="userpip"] {
+input [class="userpip"] {
     width: 100%;
 }
 
-#userPip {
-    font-weight: bold;
-}
-
 textarea[name="textpip"] {
-    min-width: 100%;
+    width: 100%;
     height: auto;
     border: none;
     resize: none;
@@ -32,6 +44,10 @@ textarea[name="textpip"] {
     padding-top: 10px
 }
 
+#pipLogo {
+    width: 20px;
+}
+
 #counter {
     color: lightgrey;
 }
@@ -40,19 +56,49 @@ textarea[name="textpip"] {
     background-color: white;
     padding-top: 10px;
     min-height: 100vh;
+    padding: 10px 0px 0px 0px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    
 }
 
-#login-btn {
-
+.sidebarNav {
+    
 }
+
+.loginDiv {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #E8E8E8;
+    display: flex;
+    padding: 10px 0px 10px 0px;
+}
+
+.loginDiv p {
+    margin: 0;
+}
+
 #feed {
     background-color: white;
-    border-left: solid 1px lightgrey;
+    border-left: solid 1px #E8E8E8;
+    border-right: solid 1px #E8E8E8;
     padding: 10px 0px 0px 0px;
 }
 
 #pipbox {
-    border-bottom: solid 1px lightgrey;
+    border-bottom: solid 1px #E8E8E8;
+}
+
+svg {
+    transition: fill 0.3s;
+}
+
+button:hover svg.bi-heart {
+    fill: red;
 }
 
 .sidebar-link {
@@ -61,12 +107,19 @@ textarea[name="textpip"] {
     font-size: 20px;
 }
 
-.sidebar-link i::after {
-    content: "\00a0\00a0";
+.sidebar-link i {
+    padding-right: 10px;
 }
 
 #mybutton {
     color: #f55600;
+}
+
+.pipFeedBottom {
+    padding: 30px 0px 30px 0px;
+    text-align: center;
+    font-weight: normal;
+    background-color: WhiteSmoke;
 }
 
 .btn-pip {
@@ -111,6 +164,7 @@ ul {
     width: 50px;
     height: 50px;
     margin-right: 10px;
+    object-fit: cover;
 }
 
 .userfirstname {
@@ -142,7 +196,7 @@ ul {
 .postedPipBox {
     padding: 10px;
     transition: background-color 0.3s;
-    border-bottom: solid 1px lightgrey;
+    border-bottom: solid 1px #E8E8E8;
 }
 
 .postedPipBox:hover {
@@ -151,38 +205,62 @@ ul {
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
+    /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button */
-  #pipCloseModal {
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+#pipCloseModal {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .sidebar-linktext  {
+      display: none;
+    }
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sidebar-link i {
+        padding-right: 0px;
+    }
   }
