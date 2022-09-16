@@ -28,39 +28,53 @@
                     <div class="sidebarNav">
                         <ul>
                             <li>
-                                <a class="sidebar-link" href="/"><img id="pipLogo"
-                                        src="/img/logo-julben-positive_blue.svg" alt="logo"></a>
+                                <!--                                 <a class="sidebar-link" href="/"><img id="pipLogo"
+                                        src="/img/logo-julben-positive_blue.svg" alt="logo"></a> -->
+                                <button type="button" onclick="location.href='/';" class="btn sidebar-link"><img
+                                        id="pipLogo" src="/img/logo-julben-positive_blue.svg" alt="logo"></button>
                             </li>
                             <li>
-                                <a class="sidebar-link" href="/"><i class="bi bi-house-fill"></i><span
-                                        class="sidebar-linktext">Home</span></a>
+                                <!--                                 <a class="sidebar-link" href="/"><i class="bi bi-house-fill"></i><span
+                                        class="sidebar-linktext">Home</span></a> -->
+                                <button type="button" onclick="location.href='/';" class="btn btn-sidebar-link"><i
+                                        class="bi bi-house-fill sidebar-link-icon"></i><span
+                                        class="sidebar-linktext">Home</span></button>
                             </li>
                             <li>
-                                <a class="sidebar-link" href="#"><i class="bi bi-person-fill"></i><span
-                                        class="sidebar-linktext">Profile</span></a>
+                                <button type="button" onclick="location.href='/';" class="btn btn-sidebar-link"><i
+                                        class="bi bi-person-fill sidebar-link-icon"></i><span
+                                        class="sidebar-linktext">Profile</span></button>
 
                             </li>
                             <li>
-                                <a class="sidebar-link" href="#"><i class="bi bi-globe2"></i><span
-                                        class="sidebar-linktext">Explore</span></a>
+                                <button type="button" onclick="location.href='/';" class="btn btn-sidebar-link"><i
+                                        class="bi bi-globe2 sidebar-link-icon"></i><span
+                                        class="sidebar-linktext">Explore</span></button>
 
                             </li>
                             <li>
-                                <!-- Modal Pip -->
-                                <button id="pipOpenModal" type="button" class="btn btn-pip">Pip modal</button>
+
+
                             </li>
                         </ul>
+                        <div class="modal-div">
+                            <!-- Modal Pip -->
+                            <button id="pipOpenModal" type="button" class="btn btn-pip btn-modal">Pip modal</button>
+                        </div>
                     </div>
                     <div class="loginDiv">
                         <img class="userImg" src="/img/profilepic.png" alt="">
-                        <div class="loginInfo"><p class="userfirstname">Julian</p><p class="username">username</p></div>
-                        
+                        <div class="loginInfo">
+                            <p class="userfirstname">Julian</p>
+                            <p class="username">username</p>
+                        </div>
+
                     </div>
 
                 </section>
                 <section id="feed" class="col-9">
                     <div id="pipbox" class="container">
-                        <h1>Feed</h1>
+                        <h1>Frontpage</h1>
                         <form id="postPipForm" name="postPipForm" method="post">
                             <div class="d-flex">
                                 <img class="userImg" src="/img/profilepic.png" alt="">

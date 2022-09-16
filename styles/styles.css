@@ -3,6 +3,7 @@ body {
     margin-right: auto;
     margin-left: auto;
     color: black;
+    font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 button {
@@ -21,7 +22,7 @@ p {
 }
 
 h1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 h2 {
@@ -37,6 +38,11 @@ textarea[name="textpip"] {
     height: auto;
     border: none;
     resize: none;
+
+}
+
+textarea[name="textpip"]:focus{
+    outline: none;
 }
 
 
@@ -61,10 +67,6 @@ textarea[name="textpip"] {
     position: sticky;
     top: 0;
     align-self: flex-start;
-    
-}
-
-.sidebarNav {
     
 }
 
@@ -101,18 +103,20 @@ button:hover svg.bi-heart {
     fill: red;
 }
 
+.sidebar-link-icon {
+    padding-right: 16px;
+}
+
 .sidebar-link {
-    text-decoration: none;
-    color: black;
+    border: none;
+    border-radius: 25px;
+    padding: 0px 20px 8px 20px;
     font-size: 20px;
 }
 
-.sidebar-link i {
-    padding-right: 10px;
-}
-
-#mybutton {
-    color: #f55600;
+.sidebar-link:hover {
+    border: none;
+    background-color: inherit;
 }
 
 .pipFeedBottom {
@@ -128,22 +132,46 @@ button:hover svg.bi-heart {
     border: none;
     border-radius: 25px;
     padding: 8px 40px;
+    font-weight: 500;
 
 }
 
-.btn-pip:hover {
+.btn-pip:hover, .btn-pip:focus, .btn-pip:active {
     color: white;
     background-color: #b43f00;
 }
 
+.btn-sidebar-link {
+    border: none;
+    border-radius: 25px;
+    padding: 8px 20px;
+    font-size: 20px;
+}
+
+.btn-sidebar-link:hover {
+    border: none;
+    background-color: WhiteSmoke;
+}
+
 ul li {
     list-style-type: none;
-    padding: 10px 0px;
+    padding: 0px 0px 6px 0px;
 }
 
 ul {
     padding: 0;
     margin: 0;
+}
+
+.modal-div {
+    padding: 20px 20px 0px 0px;
+}
+
+.btn-modal {
+    width: 100%;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .postedPipBoxContent {
@@ -172,12 +200,6 @@ ul {
     margin-bottom: 0;
     padding-right: 5px;
 }
-
-/* .userfirstname:after {
-    content: url("data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
-    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
-  </svg>");
-} */
 
 .username {
     font-weight: normal;
