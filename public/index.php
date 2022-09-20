@@ -51,6 +51,8 @@ if ($requestType == "GET") {
 
       echo json_encode("The pip has been send!");
 
+      // Try to make a "GET" to see the newest Pip without reloading the page
+
 
     } catch(PDOException $e) {
       echo json_encode("The Pip has not been received!") . $e->getMessage();
@@ -70,6 +72,20 @@ if ($requestType == "GET") {
   } catch(PDOException $e) {
     echo json_encode("Something went wrong!") . $e->getMessage();
   }
-}
+} elseif($requestType == "DELETE") {
+  // Used for Deleting Pips
+  $input = (array) json_decode(file_get_contents("php://input"), TRUE);
+  $statement = "DELETE FROM pipper.pip WHERE idpip =:idpip";
+
+  try {
+    $statement = $conn->prepare($statement);
+    $statement->execute(array("idpip" => $input['idpip']));
+
+    echo json_encode("Your post has been deleted!");
+
+  } catch(PDOException $e) {
+    echo json_encode("Something went wrong!") . $e->getMessage();
+  }
+} 
 
 ?>
