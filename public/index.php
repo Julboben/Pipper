@@ -1,7 +1,6 @@
 <?php
 require "../.env";
-// For LocalServer in Visual Code, change to the following path:
-// require "./.env";
+// For LocalServer in Visual Code, change to the following path: require "./.env";
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -20,7 +19,9 @@ $password = getenv("PASSWORD");
 
 $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $uri = explode( "/", $uri );
-// echo $uri[1];
+// Returns second url parameter - in this case pipID
+// $pipId = (string) $uri[2];
+// echo $pipId;
 
 $requestType = $_SERVER["REQUEST_METHOD"];
 // echo $requestType;
@@ -35,57 +36,105 @@ try {
   echo "Connection failed: " . $e->getMessage();
 }
 
-if ($requestType == "GET") {
-  $statement = $conn->query("SELECT * FROM pipper.pip INNER JOIN pipper.users ON pipper.users.username = pipper.pip.userpip ORDER BY timepip DESC;");
-  $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
+if ($uri[1] != "pip" && "users") {
+  echo json_encode("Wrong url parameter!");
+  exit();
+}
 
-  echo json_encode($result);
-} elseif($requestType == "POST") {
+if ($uri[1] == "pip") {
+  if ($requestType == "GET") {
+
+    $search = "";
+    if (isset($_GET['search'])) {
+      $search = $_GET['search'];
+      $statement = $conn->query("SELECT * FROM pipper.pip WHERE userpip LIKE '%$search%' OR textpip LIKE '%$search%'");
+    } else {
+      $statement = $conn->query("SELECT * FROM pipper.pip INNER JOIN pipper.users ON pipper.users.username = pipper.pip.userpip ORDER BY timepip DESC;");
+      
+    }
+    $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
+    echo json_encode($result);
+
+
+  } elseif($requestType == "POST") {
+      $input = (array) json_decode(file_get_contents("php://input"), TRUE);
+      //echo $input['textpip'];
+      $statement = "INSERT INTO pipper.pip (idpip, textpip, userpip, timepip, likespip) VALUES (default, :textpip, :username, NOW(), default)";
+      
+      $result = validatePip($input);
+
+      if($result == true) {
+        try {
+          $statement = $conn->prepare($statement);
+          $statement->execute(array("textpip" => $input['textpip'], "username" =>  $input['username']));
+    
+          echo json_encode("The pip has been send!");
+    
+          // Try to make a "GET" to see the newest Pip without reloading the page
+    
+    
+        } catch(PDOException $e) {
+          echo json_encode("The Pip has not been received!") . $e->getMessage();
+        }
+      }
+
+
+
+  } elseif($requestType == "PUT" && $uri[3] == "like") {
+    // Used for Like PIP
     $input = (array) json_decode(file_get_contents("php://input"), TRUE);
-    //echo $input['textpip'];
-    $statement = "INSERT INTO pipper.pip (idpip, textpip, userpip, timepip, likespip) VALUES (default, :textpip, :username, :timepip, '0')";
-
+    $statement = "UPDATE pipper.pip SET likespip =:likespip WHERE idpip =:idpip";
+  
     try {
       $statement = $conn->prepare($statement);
-      $statement->execute(array("textpip" => $input['textpip'], "username" =>  $input['username'], "timepip" =>  $input['timepip']));
-
-      echo json_encode("The pip has been send!");
-
-      // Try to make a "GET" to see the newest Pip without reloading the page
-
-
+      $statement->execute(array("likespip" => $input['likespip'], "idpip" => $uri[2]));
+  
+      echo json_encode("Your like as been received!");
+  
     } catch(PDOException $e) {
-      echo json_encode("The Pip has not been received!") . $e->getMessage();
+      echo json_encode("Something went wrong!") . $e->getMessage();
     }
 
-} elseif($requestType == "PUT") {
-  // Used for Like PIP
-  $input = (array) json_decode(file_get_contents("php://input"), TRUE);
-  $statement = "UPDATE pipper.pip SET likespip =:likespip WHERE idpip =:idpip";
+  } elseif($requestType == "PUT" && $uri[3] == "edit") {
+    // Used for EDITS!!!
+    $input = (array) json_decode(file_get_contents("php://input"), TRUE);
+    $statement = "UPDATE pipper.pip SET textpip =:textpip WHERE idpip =:idpip";
+  
+    try {
+      $statement = $conn->prepare($statement);
+      $statement->execute(array("textpip" => $input['textpip'], "idpip" => $uri[2]));
+  
+      echo json_encode("Your pip has been updated!");
+  
+    } catch(PDOException $e) {
+      echo json_encode("Something went wrong!") . $e->getMessage();
+    }
 
-  try {
-    $statement = $conn->prepare($statement);
-    $statement->execute(array("likespip" => $input['likespip'], "idpip" => $input['idpip']));
+  } elseif($requestType == "DELETE") {
+    // Used for Deleting Pips
+    $input = (array) json_decode(file_get_contents("php://input"), TRUE);
+    $statement = "DELETE FROM pipper.pip WHERE idpip =:idpip";
+  
+    try {
+      $statement = $conn->prepare($statement);
+      $statement->execute(array("idpip" => $uri[2]));
+  
+      echo json_encode("Your post has been deleted!");
+  
+    } catch(PDOException $e) {
+      echo json_encode("Something went wrong!") . $e->getMessage();
+    }
+  } 
+}
 
-    echo json_encode("Your like as been received!");
-
-  } catch(PDOException $e) {
-    echo json_encode("Something went wrong!") . $e->getMessage();
+function validatePip($input) {
+  if (!isset($input['textpip'])) {
+    echo json_encode("You need some text!");
+    $valid = false;
+  } else {
+      $valid = true;
   }
-} elseif($requestType == "DELETE") {
-  // Used for Deleting Pips
-  $input = (array) json_decode(file_get_contents("php://input"), TRUE);
-  $statement = "DELETE FROM pipper.pip WHERE idpip =:idpip";
-
-  try {
-    $statement = $conn->prepare($statement);
-    $statement->execute(array("idpip" => $input['idpip']));
-
-    echo json_encode("Your post has been deleted!");
-
-  } catch(PDOException $e) {
-    echo json_encode("Something went wrong!") . $e->getMessage();
-  }
-} 
+  return $valid;
+}
 
 ?>
