@@ -162,6 +162,9 @@ function editModal(selectedPipId) {
    }
 }
 
+/* 
+Search Bar
+*/
 document.querySelector("#search-btn").addEventListener("click", async (event) => {
    event.preventDefault();
    const search = document.querySelector("#site-search");

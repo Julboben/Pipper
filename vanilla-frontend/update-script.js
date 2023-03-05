@@ -1,4 +1,8 @@
-// Like Pip with Parameter
+/**
+* Runs the likePip with param as pipid
+* @param {object} pipid
+* @returns {HTMLElement} Template with contact information
+*/
 async function likePip(selectedPipId) {
   // Gets selectedPipId Param from Button
   let pipLikesValue = parseInt(document.querySelector("#pipLikesId" + selectedPipId).innerHTML);
